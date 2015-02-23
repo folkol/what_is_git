@@ -1,17 +1,30 @@
+Slides:
+
 1) What is Git?
+'Git is a ...'
+     '... fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals.'
+     '... hash map.'
 
-'Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals.'
+2) This hash map can store three kinds of objects
+   - blob (File data)
+   - tree (Structure pointing to blobs and/or other trees)
+   - commit (A document referencing a tree, 0+ parent commit(s) and some metadata)
 
-'A hash map'
+3) Objects identified by a SHA hash of their contents 
 
+4) You can use friendly named references instead of 40 char hashes
 
-2) There hash map can store three kinds of objects
-   - blob
-   - tree
-   - commit
+5) Branches, tags etc are references
 
+6) Special reference: HEAD
 
-3)
+HEAD – The currently checked-out commit/branch.
+FETCH_HEAD – The most recently fetched branch from a remote repo.
+ORIG_HEAD – A backup reference to HEAD before drastic changes to it.
+MERGE_HEAD – The commit(s) that you’re merging into the current branch with git merge.
+CHERRY_PICK_HEAD – The commit that you’re cherry-picking.
+
+7) Virtual tree: index (or staging area)
 
 
 
@@ -23,9 +36,16 @@ n) And that is why git push -f is better represented by someone turning a sign!
 
 
 
+Demo!
+=====
+
+[ See cheat sheet ]
+
+
 
 
 Ta upp:
    - commits as snapshots of the working tree
-   - git object types
+   - git object types (blob, tree, commit)
    - branches (och andra reffar) = pekare till commit objects
+   - git help -a

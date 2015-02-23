@@ -1,0 +1,24 @@
+; Create repository structure. Hash map buckets / Git object references.
+$ mkdir -p .git/{objects,refs}
+; “heads”: “branches”, “remotes”, “tags” etc.
+$ echo "ref: refs/heads/my_branch" > .git/HEAD
+
+; Store blob object
+$ echo "Hello, world!" | git hash-object -w --stdin
+; Retrieve blob object
+$ git cat-file -p af56
+
+; Write tree object
+$ echo -e "10644 blob af5626b4a114abcb82d63db7c8082c3c4756e51b\thello.txt" | git mktree
+; Read tree object
+$ git ls-tree af56
+
+; Write commit object
+$ git commit-tree af56 -m "Some commit message"
+; Read commit object
+$ git cat-file -p xxxx
+
+; Point current head to this commit
+$ mkdir -p .git/refs/heads/my_branch; cat "xxxx" > .git/refs/heads/my_branch
+; “Restore” working tree
+$ git checkout HEAD
